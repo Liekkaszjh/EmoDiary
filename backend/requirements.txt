@@ -1,0 +1,17 @@
+fastapi>=0.110,<0.117
+uvicorn>=0.30,<0.34
+python-multipart>=0.0.9,<0.1
+sqlalchemy>=2.0,<2.1
+pydantic>=2.6,<2.11
+python-jose==3.5.0
+passlib==1.7.4
+numpy>=1.23,<2.0
+torch>=1.10,<2.3
+torchaudio>=1.10,<2.3
+librosa>=0.10,<0.11
+soundfile>=0.12,<0.14
+scipy>=1.10,<2.0
+python_speech_features>=0.6,<1.0
+tqdm>=4.66,<5
+funasr==1.2.7
+timm>=0.9,<1.0
