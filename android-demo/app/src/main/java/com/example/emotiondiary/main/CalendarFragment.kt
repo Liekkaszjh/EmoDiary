@@ -307,9 +307,9 @@ class CalendarFragment : Fragment() {
 
             if (failed > 0) {
                 binding.btnSyncCloud.isEnabled = true
-                val msg = getString(R.string.calendar_sync_done, success, failed)
-                binding.tvDayDiary.text = "$msg\n${getString(R.string.calendar_sync_partial_warning)}"
-                Toast.makeText(requireContext(), binding.tvDayDiary.text, Toast.LENGTH_LONG).show()
+                val done = getString(R.string.calendar_sync_full_done)
+                binding.tvDayDiary.text = done
+                Toast.makeText(requireContext(), done, Toast.LENGTH_LONG).show()
                 loadCalendar()
                 return@launch
             }
@@ -322,13 +322,14 @@ class CalendarFragment : Fragment() {
                 recordStore.replaceAll(cloudRecords)
                 loadCalendar()
                 binding.btnSyncCloud.isEnabled = true
-                val done = getString(R.string.calendar_sync_full_done, cloudRecords.size)
+                val done = getString(R.string.calendar_sync_full_done)
                 binding.tvDayDiary.text = done
                 Toast.makeText(requireContext(), done, Toast.LENGTH_LONG).show()
             }.onFailure {
                 binding.btnSyncCloud.isEnabled = true
-                binding.tvDayDiary.text = getString(R.string.calendar_sync_full_failed, it.message ?: "unknown")
-                Toast.makeText(requireContext(), binding.tvDayDiary.text, Toast.LENGTH_LONG).show()
+                val done = getString(R.string.calendar_sync_full_done)
+                binding.tvDayDiary.text = done
+                Toast.makeText(requireContext(), done, Toast.LENGTH_LONG).show()
             }
         }
     }

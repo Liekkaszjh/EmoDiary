@@ -2,6 +2,8 @@ package com.example.emotiondiary
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Build
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.example.emotiondiary.auth.LoginFragment
 import com.example.emotiondiary.auth.RegisterFragment
@@ -19,6 +21,7 @@ class AuthActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        allowScreenCapture()
         binding = ActivityAuthBinding.inflate(layoutInflater)
         setContentView(binding.root)
         sessionManager = SessionManager(this)
@@ -46,6 +49,11 @@ class AuthActivity : AppCompatActivity() {
         showLogin()
     }
 
+    override fun onResume() {
+        super.onResume()
+        allowScreenCapture()
+    }
+
     private fun showLogin() {
         supportFragmentManager.beginTransaction()
             .replace(R.id.authContainer, loginFragment)
@@ -60,6 +68,13 @@ class AuthActivity : AppCompatActivity() {
             .commit()
         currentTab = Tab.REGISTER
         updateTabsUi()
+    }
+
+    private fun allowScreenCapture() {
+        window.clearFlags(WindowManager.LayoutParams.FLAG_SECURE)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            setRecentsScreenshotEnabled(true)
+        }
     }
 
     private fun updateTabsUi() {

@@ -9,12 +9,12 @@
 
 ## Run
 
-1. Start backend first (default `http://10.0.2.2:8000` for emulator).
+1. Start backend first (current server: `http://8.136.19.253/`).
 2. Open `android-demo` in Android Studio.
 3. Run on emulator or device.
 
-For real device testing, change `BASE_URL` in `RetrofitClient.kt` to your LAN IP,
-for example: `http://192.168.1.8:8000/`.
+For real device testing, the app currently points to the deployed backend:
+`http://8.136.19.253/`.
 
 ## Bundled SER Model
 

@@ -1,6 +1,12 @@
-﻿# EmoDiary 整合包使用说明
+﻿# EmoDiary APP概览
 
-本目录 `E:\EmoDiary` 已包含前后端、ASR/SER 推理代码和所需模型权重，可直接用于开发管理与 APK 打包。
+- APP主界面如下：
+
+![alt text](主界面_01.png)
+
+- “情绪洞察”界面如下：
+
+![alt text](情绪洞察.png)
 
 ## 一、目录结构
 
